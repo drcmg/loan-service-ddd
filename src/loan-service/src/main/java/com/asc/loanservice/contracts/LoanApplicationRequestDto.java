@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanRequestDto {
+public class LoanApplicationRequestDto {
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;

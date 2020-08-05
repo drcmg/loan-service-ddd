@@ -1,6 +1,6 @@
 package com.asc.loanservice.contracts;
 
-public enum LoanRequestEvaluationResult {
+public enum LoanApplicationEvaluationStatus {
     APPROVED,
     REJECTED
 }

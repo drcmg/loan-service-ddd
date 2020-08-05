@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanRequestRegistrationResultDto {
+public class LoanApplicationResultDto {
     private String loanRequestNumber;
-    private LoanRequestEvaluationResult evaluationResult;
+    private LoanApplicationEvaluationStatus evaluationResult;
 }

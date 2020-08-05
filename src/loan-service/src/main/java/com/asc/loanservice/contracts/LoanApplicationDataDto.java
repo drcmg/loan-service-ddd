@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanRequestDataDto {
+public class LoanApplicationDataDto {
     private String loanRequestNumber;
     private String customerName;
     private LocalDate customerBirthday;
@@ -23,6 +23,6 @@ public class LoanRequestDataDto {
     private BigDecimal loanAmount;
     private Integer numberOfInstallments;
     private LocalDate firstInstallmentDate;
-    private LoanRequestEvaluationResult evaluationResult;
+    private LoanApplicationEvaluationStatus evaluationResult;
     private LocalDateTime registrationDate;
 }
