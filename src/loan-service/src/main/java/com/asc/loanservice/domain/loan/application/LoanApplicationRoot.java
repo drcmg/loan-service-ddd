@@ -1,7 +1,6 @@
 package com.asc.loanservice.domain.loan.application;
 
 import com.asc.loanservice.contracts.LoanApplicationCreateInput;
-import com.asc.loanservice.domain.loan.application.port.LoanEvaluationStatus;
 import lombok.Builder;
 
 import java.time.LocalDateTime;

@@ -2,7 +2,7 @@ package com.asc.loanservice.infrastructure.repository.model;
 
 
 
-import com.asc.loanservice.domain.loan.application.port.LoanEvaluationStatus;
+import com.asc.loanservice.domain.loan.application.LoanEvaluationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
