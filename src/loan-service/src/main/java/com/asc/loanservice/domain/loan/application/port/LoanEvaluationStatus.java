@@ -1,5 +1,5 @@
-package com.asc.loanservice.domain.loan.application;
+package com.asc.loanservice.domain.loan.application.port;
 
-public enum EvaluationStatus {
+public enum LoanEvaluationStatus {
     SUCCESS, FAILURE
 }

@@ -1,11 +1,10 @@
 package com.asc.loanservice.infrastructure.rule;
 
 import com.asc.loanservice.contracts.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.application.port.RulePort;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerAgeRuleAdapter implements RulePort {
+public class CustomerAgeRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {
