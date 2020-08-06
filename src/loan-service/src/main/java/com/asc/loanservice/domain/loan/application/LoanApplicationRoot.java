@@ -55,29 +55,27 @@ class LoanApplicationRoot {
     }
 
     private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanApplication loanApplication) {
-        return LoanEvaluationStatus.SUCCESS.equals(loanApplication.getLoanEvaluationStatus())
+        return LoanEvaluationStatus.SUCCESS.name().equals(loanApplication.getLoanEvaluationStatus().name())
                ? LoanApplicationEvaluationStatus.APPROVED
                : LoanApplicationEvaluationStatus.REJECTED;
     }
 
     LoanApplication toModel(){
         return LoanApplication.builder()
-                .customer(com.asc.loanservice.infrastructure.repository.model.Customer.builder()
-                        .customerName(customer.getCustomerName())
-                        .customerBirthday(customer.getCustomerBirthday())
-                        .customerMonthlyIncome(customer.getCustomerMonthlyIncome())
-                        .customerTaxId(customer.getCustomerTaxId())
-                        .build()
-                )
-                .loan(com.asc.loanservice.infrastructure.repository.model.Loan.builder()
-                        .loanAmount(loan.getLoanAmount())
-                        .firstInstallmentDate(loan.getFirstInstallmentDate())
-                        .numberOfInstallments(loan.getNumberOfInstallments())
-                        .build()
-                )
-                .loanEvaluationStatus(loanEvaluationStatus)
+                .customerName(customer.getCustomerName())
+                .customerBirthday(customer.getCustomerBirthday())
+                .customerMonthlyIncome(customer.getCustomerMonthlyIncome())
+                .customerTaxId(customer.getCustomerTaxId())
+                .loanAmount(loan.getLoanAmount())
+                .firstInstallmentDate(loan.getFirstInstallmentDate())
+                .numberOfInstallments(loan.getNumberOfInstallments())
+                .loanEvaluationStatus(mapLoanEvaluationStatusToModelStatus(loanEvaluationStatus))
                 .build();
     }
 
-
+    private com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus mapLoanEvaluationStatusToModelStatus(LoanEvaluationStatus loanEvaluationResult){
+        return com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
+                ? com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS
+                : com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.FAILURE;
+    }
 }

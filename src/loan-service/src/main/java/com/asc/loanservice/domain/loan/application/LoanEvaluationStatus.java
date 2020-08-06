@@ -1,5 +1,5 @@
 package com.asc.loanservice.domain.loan.application;
 
-public enum LoanEvaluationStatus {
+enum LoanEvaluationStatus {
     SUCCESS, FAILURE
 }
