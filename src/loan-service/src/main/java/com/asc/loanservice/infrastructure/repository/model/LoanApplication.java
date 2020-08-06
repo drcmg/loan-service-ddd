@@ -6,6 +6,7 @@ import com.asc.loanservice.domain.loan.application.LoanEvaluationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -13,23 +14,24 @@ import java.time.LocalDateTime;
 
 @Getter
 @Builder
-@AllArgsConstructor
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoanApplication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Long id;
+    private Long id;
 
     @Embedded
-    private final Customer customer;
+    private Customer customer;
 
     @Embedded
-    private final Loan loan;
+    private Loan loan;
 
     @Enumerated(value = EnumType.STRING)
-    private final LoanEvaluationStatus loanEvaluationStatus;
+    private LoanEvaluationStatus loanEvaluationStatus;
 
     @CreationTimestamp
-    private final LocalDateTime createdDate;
+    private LocalDateTime createdDate;
 }
