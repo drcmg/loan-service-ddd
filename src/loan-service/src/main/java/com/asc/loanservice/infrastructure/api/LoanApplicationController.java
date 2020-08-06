@@ -1,4 +1,4 @@
-package com.asc.loanservice.api;
+package com.asc.loanservice.infrastructure.api;
 
 import com.asc.loanservice.contracts.LoanApplicationView;
 import com.asc.loanservice.contracts.LoanApplicationRequest;
