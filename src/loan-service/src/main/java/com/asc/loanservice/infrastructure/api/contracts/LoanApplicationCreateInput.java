@@ -1,4 +1,5 @@
-package com.asc.loanservice.contracts;
+package com.asc.loanservice.infrastructure.api.contracts;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,8 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanApplicationRequest {
+public class LoanApplicationCreateInput {
+    private String loanRequestNumber;
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;

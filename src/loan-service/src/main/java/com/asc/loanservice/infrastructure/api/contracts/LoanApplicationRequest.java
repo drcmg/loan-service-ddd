@@ -1,18 +1,18 @@
-package com.asc.loanservice.contracts;
+package com.asc.loanservice.infrastructure.api.contracts;
 
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
-@Builder
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanApplicationView {
-    private String loanRequestNumber;
+public class LoanApplicationRequest {
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;
@@ -20,6 +20,4 @@ public class LoanApplicationView {
     private BigDecimal loanAmount;
     private Integer numberOfInstallments;
     private LocalDate firstInstallmentDate;
-    private LoanApplicationEvaluationStatus evaluationResult;
-    private LocalDateTime registrationDate;
 }

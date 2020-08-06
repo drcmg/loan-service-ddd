@@ -1,8 +1,8 @@
 package com.asc.loanservice.domain.loan.application;
 
-import com.asc.loanservice.contracts.LoanApplicationView;
-import com.asc.loanservice.contracts.LoanApplicationRequest;
-import com.asc.loanservice.contracts.LoanApplicationResult;
+import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationView;
+import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
+import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;

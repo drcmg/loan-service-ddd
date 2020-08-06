@@ -1,6 +1,6 @@
 package com.asc.loanservice.infrastructure.rule;
 
-import com.asc.loanservice.contracts.LoanApplicationRequest;
+import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
 import org.springframework.stereotype.Service;
 
 @Service
