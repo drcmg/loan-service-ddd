@@ -1,6 +1,10 @@
 package com.asc.loanservice.domain.loan.application;
 
 import com.asc.loanservice.contracts.LoanApplicationCreateInput;
+import com.asc.loanservice.contracts.LoanApplicationRequest;
+import com.asc.loanservice.contracts.LoanApplicationResult;
+import com.asc.loanservice.contracts.LoanApplicationView;
+import com.asc.loanservice.domain.loan.evaluation.LoanEvaluationAggregate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -11,30 +15,14 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-class LoanApplicationAggregate {
+public class LoanApplicationRoot {
 
     private Customer customer;
     private Loan loan;
     private EvaluationStatus evaluationStatus;
     private LocalDateTime createdDate;
 
-    static LoanApplicationAggregate create(LoanApplicationCreateInput loanApplicationCreateInput){
-        return LoanApplicationAggregate.builder()
-                .customer(Customer.builder()
-                                .customerName(loanApplicationCreateInput.getCustomerName())
-                                .customerBirthday(loanApplicationCreateInput.getCustomerBirthday())
-                                .customerTaxId(loanApplicationCreateInput.getCustomerTaxId())
-                                .customerMonthlyIncome(loanApplicationCreateInput.getCustomerMonthlyIncome())
-                            .build()
-                )
-                .loan(Loan.builder()
-                                .loanAmount(loanApplicationCreateInput.getLoanAmount())
-                                .numberOfInstallments(loanApplicationCreateInput.getNumberOfInstallments())
-                                .firstInstallmentDate(loanApplicationCreateInput.getFirstInstallmentDate())
-                            .build()
-                )
-                .build();
-    }
+
 
 
 

@@ -1,15 +1,11 @@
 package com.asc.loanservice.infrastructure.rule;
 
-
 import com.asc.loanservice.contracts.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.evaluation.port.RulePort;
-import lombok.AllArgsConstructor;
+import com.asc.loanservice.domain.loan.application.port.RulePort;
 import org.springframework.stereotype.Service;
 
-
 @Service
-@AllArgsConstructor
-public class NotExistInDeptRegisterRuleAdapter implements RulePort {
+public class MaximumInstallmentAmountRuleAdapter implements RulePort {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {
