@@ -3,6 +3,8 @@ package com.asc.loanservice.domain.loan.application;
 import com.asc.loanservice.contracts.LoanApplicationView;
 import com.asc.loanservice.contracts.LoanApplicationRequest;
 import com.asc.loanservice.contracts.LoanApplicationResult;
+import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
+import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.infrastructure.LoanEvaluatorProviderAdapter;
 
 public class LoanApplicationFacade {
@@ -10,10 +12,11 @@ public class LoanApplicationFacade {
     private final LoanApplicationAggregate loanApplicationAggregate;
 
     public LoanApplicationFacade (
-            LoanEvaluatorProviderAdapter loanEvaluatorProviderAdapter){
+            LoanEvaluatorProviderPort loanEvaluatorProviderPort,
+            LoanApplicationDataProviderPort loanApplicationDataProviderPort){
 
         this.loanApplicationAggregate =
-                new LoanApplicationAggregate(loanEvaluatorProviderAdapter);
+                new LoanApplicationAggregate(loanEvaluatorProviderPort, loanApplicationDataProviderPort);
     }
 
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
