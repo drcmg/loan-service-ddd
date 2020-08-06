@@ -1,10 +1,8 @@
-package com.asc.loanservice.domain.loan.application;
+package com.asc.loanservice.domain.loan.application.port;
 
 import com.asc.loanservice.contracts.LoanApplicationCreateInput;
 import com.asc.loanservice.contracts.LoanApplicationRequest;
-import org.mapstruct.Mapper;
 
-@Mapper
-public interface LoanMapper {
+public interface LoanMapperPort {
     LoanApplicationCreateInput createInput(LoanApplicationRequest loanApplicationRequest);
 }
