@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 
+import java.util.NoSuchElementException;
+
 
 @Builder
 @AllArgsConstructor
@@ -33,6 +35,8 @@ class LoanApplicationAggregate {
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
-        return null;
+        return loanApplicationDataProvider.findById(Long.valueOf(loanNumber))
+                .orElseThrow(NoSuchElementException::new)
+                .prepareView();
     }
 }

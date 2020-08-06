@@ -28,6 +28,6 @@ public class LoanApplicationFacade {
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
-        return null;
+        return loanApplicationAggregate.getByNumber(loanNumber);
     }
 }

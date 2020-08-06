@@ -21,7 +21,6 @@ public class LoanApplicationController {
 
     @GetMapping("/{loanNumber}")
     public LoanApplicationView getByNumber(@PathVariable("loanNumber") String loanNumber){
-        //TODO: implement
-        return null;
+        return loanApplicationFacade.getByNumber(loanNumber);
     }
 }

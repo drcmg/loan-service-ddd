@@ -2,6 +2,8 @@ package com.asc.loanservice.infrastructure.repository.model;
 
 
 
+import com.asc.loanservice.contracts.LoanApplicationEvaluationStatus;
+import com.asc.loanservice.contracts.LoanApplicationView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,4 +36,26 @@ public class LoanApplication {
     private LoanEvaluationStatus loanEvaluationStatus;
     @CreationTimestamp
     private LocalDateTime createdDate;
+
+
+    public LoanApplicationView prepareView(){
+        return LoanApplicationView.builder()
+                .loanRequestNumber(id.toString())
+                .customerName(customerName)
+                .customerBirthday(customerBirthday)
+                .customerTaxId(customerTaxId)
+                .customerMonthlyIncome(customerMonthlyIncome)
+                .loanAmount(loanAmount)
+                .numberOfInstallments(numberOfInstallments)
+                .firstInstallmentDate(firstInstallmentDate)
+                .registrationDate(createdDate)
+                .evaluationResult(mapLoanEvaluationStatusToDto(loanEvaluationStatus))
+                .build();
+    }
+
+    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanEvaluationStatus loanEvaluationStatus) {
+        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationStatus.name())
+                ? LoanApplicationEvaluationStatus.APPROVED
+                : LoanApplicationEvaluationStatus.REJECTED;
+    }
 }

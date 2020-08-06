@@ -4,8 +4,9 @@ import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProvi
 import com.asc.loanservice.infrastructure.repository.LoanApplicationRepository;
 import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -16,5 +17,10 @@ public class LoanApplicationDataProviderAdapter implements LoanApplicationDataPr
     @Override
     public LoanApplication save(LoanApplication loanApplication) {
         return loanApplicationRepository.save(loanApplication);
+    }
+
+    @Override
+    public Optional<LoanApplication> findById(Long id) {
+        return loanApplicationRepository.findById(id);
     }
 }
