@@ -5,36 +5,31 @@ import com.asc.loanservice.contracts.LoanApplicationResult;
 import com.asc.loanservice.contracts.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
-import com.asc.loanservice.infrastructure.LoanEvaluatorProviderAdapter;
+import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;
+import com.asc.loanservice.infrastructure.LoanEvaluationResult;
+import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 
 
 @Builder
+@AllArgsConstructor
 class LoanApplicationAggregate {
 
-    @NonNull
-    private final LoanEvaluatorProviderPort loanEvaluatorProviderPort;
+    @NonNull private final LoanEvaluatorProviderPort loanEvaluatorProvider;
+    @NonNull private final LoanApplicationDataProviderPort loanApplicationDataProvider;
+    @NonNull private final LoanMapperPort loanMapper;
 
-    @NonNull
-    private final LoanApplicationDataProviderPort loanApplicationDataProviderPort;
 
-    private LoanMapper loanMapper;
-
-    LoanApplicationAggregate(
-            LoanEvaluatorProviderPort loanEvaluatorProviderPort,
-            LoanApplicationDataProviderPort loanApplicationDataProviderPort){
-        this.loanEvaluatorProviderPort = loanEvaluatorProviderPort;
-        this.loanApplicationDataProviderPort = loanApplicationDataProviderPort;
-    }
-
-    public LoanApplicationResult register(LoanApplicationRequest loanRequest) {
+    public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
         LoanApplicationRoot loanApplicationRoot =
-                LoanApplicationRoot.create(loanMapper.createInput(loanRequest));
+                LoanApplicationRoot.create(loanMapper.createInput(loanApplicationRequest));
+        LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.evaluate(loanApplicationRequest);
 
-
-
-        return null;
+        loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
+        LoanApplication loanApplication = loanApplicationDataProvider.save(loanApplicationRoot.toModel());
+        return loanApplicationRoot.prepareRegistrationResultView(loanApplication);
     }
 
     public LoanApplicationView getByNumber(String loanNumber){

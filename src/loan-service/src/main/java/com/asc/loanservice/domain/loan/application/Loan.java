@@ -1,15 +1,16 @@
 package com.asc.loanservice.domain.loan.application;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-
+@Getter
 @Builder
 class Loan {
 
-    private BigDecimal loanAmount;
-    private Integer numberOfInstallments;
-    private LocalDate firstInstallmentDate;
+    private final BigDecimal loanAmount;
+    private final Integer numberOfInstallments;
+    private final LocalDate firstInstallmentDate;
 }

@@ -5,18 +5,22 @@ import com.asc.loanservice.contracts.LoanApplicationRequest;
 import com.asc.loanservice.contracts.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
-import com.asc.loanservice.infrastructure.LoanEvaluatorProviderAdapter;
+import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;
 
 public class LoanApplicationFacade {
 
     private final LoanApplicationAggregate loanApplicationAggregate;
 
     public LoanApplicationFacade (
-            LoanEvaluatorProviderPort loanEvaluatorProviderPort,
-            LoanApplicationDataProviderPort loanApplicationDataProviderPort){
-
-        this.loanApplicationAggregate =
-                new LoanApplicationAggregate(loanEvaluatorProviderPort, loanApplicationDataProviderPort);
+            LoanEvaluatorProviderPort loanEvaluatorProvider,
+            LoanApplicationDataProviderPort loanApplicationDataProvider,
+            LoanMapperPort loanMapper
+    ){
+        this.loanApplicationAggregate = new LoanApplicationAggregate(
+                        loanEvaluatorProvider,
+                        loanApplicationDataProvider,
+                        loanMapper
+                );
     }
 
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {

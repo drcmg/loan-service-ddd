@@ -4,6 +4,7 @@ package com.asc.loanservice.infrastructure.repository.model;
 
 import com.asc.loanservice.domain.loan.application.LoanEvaluationStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -11,7 +12,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
+@Builder
 @AllArgsConstructor
+@Entity
 public class LoanApplication {
 
     @Id
