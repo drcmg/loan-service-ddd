@@ -1,8 +1,8 @@
 package com.asc.loanservice.api;
 
-import com.asc.loanservice.contracts.LoanApplicationDataDto;
-import com.asc.loanservice.contracts.LoanApplicationRequestDto;
-import com.asc.loanservice.contracts.LoanApplicationResultDto;
+import com.asc.loanservice.contracts.LoanApplicationView;
+import com.asc.loanservice.contracts.LoanApplicationRequest;
+import com.asc.loanservice.contracts.LoanApplicationResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 public class LoanApplicationController {
 
     @PostMapping
-    public LoanApplicationResultDto register(@RequestBody LoanApplicationRequestDto loanRequest){
+    public LoanApplicationResult register(@RequestBody LoanApplicationRequest loanRequest){
         //TODO: implement
         return null;
     }
 
     @GetMapping("/{loanNumber}")
-    public LoanApplicationDataDto getByNumber(@PathVariable("loanNumber") String loanNumber){
+    public LoanApplicationView getByNumber(@PathVariable("loanNumber") String loanNumber){
         //TODO: implement
         return null;
     }

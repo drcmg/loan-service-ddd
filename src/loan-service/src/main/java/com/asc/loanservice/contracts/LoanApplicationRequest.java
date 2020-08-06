@@ -1,6 +1,5 @@
 package com.asc.loanservice.contracts;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,14 +7,12 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanApplicationDataDto {
-    private String loanRequestNumber;
+public class LoanApplicationRequest {
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;
@@ -23,6 +20,4 @@ public class LoanApplicationDataDto {
     private BigDecimal loanAmount;
     private Integer numberOfInstallments;
     private LocalDate firstInstallmentDate;
-    private LoanApplicationEvaluationStatus evaluationResult;
-    private LocalDateTime registrationDate;
 }
