@@ -1,8 +1,8 @@
-package com.asc.loanservice.domain.loan.evaluation;
+package com.asc.loanservice.domain.loan.evaluation.port;
 
 import com.asc.loanservice.contracts.LoanApplicationRequest;
 
-public interface Rule {
+public interface RulePort {
 
     Boolean isValid(LoanApplicationRequest loanApplicationRequest);
 }

@@ -1,15 +1,11 @@
-package com.asc.loanservice.domain.loan.evaluation.rules;
-
+package com.asc.loanservice.infrastructure.rule;
 
 import com.asc.loanservice.contracts.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.evaluation.Rule;
-import lombok.AllArgsConstructor;
+import com.asc.loanservice.domain.loan.evaluation.port.RulePort;
 import org.springframework.stereotype.Service;
 
-
 @Service
-@AllArgsConstructor
-public class NotExistInDeptRegisterRule implements Rule {
+public class CustomerAgeRuleAdapter implements RulePort {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {
