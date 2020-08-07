@@ -20,7 +20,7 @@ public class LoanApplicationDataProviderAdapter implements LoanApplicationDataPr
     }
 
     @Override
-    public Optional<LoanApplication> findById(Long id) {
-        return loanApplicationRepository.findById(id);
+    public Optional<LoanApplication> findByLoanRequestNumber(String loanRequestNumber) {
+        return loanApplicationRepository.findByLoanRequestNumber(loanRequestNumber);
     }
 }

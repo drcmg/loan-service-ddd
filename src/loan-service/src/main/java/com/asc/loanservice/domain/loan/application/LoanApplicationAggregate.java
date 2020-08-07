@@ -35,7 +35,7 @@ class LoanApplicationAggregate {
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
-        return loanApplicationDataProvider.findById(Long.valueOf(loanNumber))
+        return loanApplicationDataProvider.findByLoanRequestNumber(loanNumber)
                 .orElseThrow(EntityNotFoundException::new)
                 .prepareView();
     }

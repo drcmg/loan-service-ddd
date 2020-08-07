@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoanApplicationCreateInput {
-    private String loanRequestNumber;
+//    private String loanRequestNumber;
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;

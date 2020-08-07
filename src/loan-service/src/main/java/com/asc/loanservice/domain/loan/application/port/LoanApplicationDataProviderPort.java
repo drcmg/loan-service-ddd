@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface LoanApplicationDataProviderPort {
     LoanApplication save(LoanApplication loanApplication);
-    Optional<LoanApplication> findById(Long id);
+    Optional<LoanApplication> findByLoanRequestNumber(String loanRequestNumber);
 }

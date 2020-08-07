@@ -14,6 +14,7 @@ public class NotExistInDeptRegisterRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {
-        return debtPort.checkDebtClient(loanApplicationRequest.getCustomerTaxId()).equals(DebtCustomerResult.SUCCESS);
+        return debtPort.checkDebtClient(loanApplicationRequest.getCustomerTaxId())
+                .equals(DebtCustomerResult.SUCCESS);
     }
 }

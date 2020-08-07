@@ -7,11 +7,13 @@ import com.asc.loanservice.infrastructure.LoanEvaluationResult;
 import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.Builder;
 
+import java.util.UUID;
 import java.time.LocalDateTime;
 
 @Builder
 class LoanApplicationRoot {
 
+    private final String loanRequestNumber;
     private final Customer customer;
     private final Loan loan;
     private LoanEvaluationStatus loanEvaluationStatus;
@@ -19,6 +21,7 @@ class LoanApplicationRoot {
 
     static LoanApplicationRoot create(LoanApplicationCreateInput loanApplicationCreateInput) {
         return LoanApplicationRoot.builder()
+                .loanRequestNumber(UUID.randomUUID().toString())
                 .customer(Customer.builder()
                         .customerName(loanApplicationCreateInput.getCustomerName())
                         .customerBirthday(loanApplicationCreateInput.getCustomerBirthday())
@@ -47,7 +50,7 @@ class LoanApplicationRoot {
 
     LoanApplicationResult prepareRegistrationResultView(LoanApplication loanApplication){
         return LoanApplicationResult.builder()
-                .loanRequestNumber(loanApplication.getId().toString())
+                .loanRequestNumber(loanApplication.getLoanRequestNumber())
                 .evaluationResult(
                         mapLoanEvaluationStatusToDto(loanApplication)
                 )
@@ -62,6 +65,7 @@ class LoanApplicationRoot {
 
     LoanApplication toModel(){
         return LoanApplication.builder()
+                .loanRequestNumber(loanRequestNumber)
                 .customerName(customer.getCustomerName())
                 .customerBirthday(customer.getCustomerBirthday())
                 .customerMonthlyIncome(customer.getCustomerMonthlyIncome())

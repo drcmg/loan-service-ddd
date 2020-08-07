@@ -25,6 +25,7 @@ public class LoanApplication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String loanRequestNumber;
     private String customerName;
     private LocalDate customerBirthday;
     private String customerTaxId;
@@ -40,7 +41,7 @@ public class LoanApplication {
 
     public LoanApplicationView prepareView(){
         return LoanApplicationView.builder()
-                .loanRequestNumber(id.toString())
+                .loanRequestNumber(loanRequestNumber)
                 .customerName(customerName)
                 .customerBirthday(customerBirthday)
                 .customerTaxId(customerTaxId)
