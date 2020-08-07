@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.rule;
+package com.asc.loanservice.domain.loan.rule;
 
 import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
 

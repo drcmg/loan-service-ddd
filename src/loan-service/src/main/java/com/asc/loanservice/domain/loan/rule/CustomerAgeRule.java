@@ -1,10 +1,8 @@
-package com.asc.loanservice.infrastructure.rule;
+package com.asc.loanservice.domain.loan.rule;
 
 import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
-import org.springframework.stereotype.Service;
 
-@Service
-public class MaximumInstallmentAmountRule implements Rule {
+public class CustomerAgeRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {

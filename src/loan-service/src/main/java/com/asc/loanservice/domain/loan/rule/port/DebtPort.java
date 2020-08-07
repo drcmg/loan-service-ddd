@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.rule.port;
+package com.asc.loanservice.domain.loan.rule.port;
 
 import com.asc.loanservice.external.DebtCustomerResult;
 
