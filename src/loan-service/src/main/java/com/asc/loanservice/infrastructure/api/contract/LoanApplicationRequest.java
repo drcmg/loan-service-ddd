@@ -1,5 +1,6 @@
 package com.asc.loanservice.infrastructure.api.contract;
 
+import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
@@ -16,27 +17,33 @@ import static com.asc.loanservice.infrastructure.constant.Constants.DATE_FORMAT;
 @AllArgsConstructor
 public class LoanApplicationRequest {
 
-    @NotNull
-    @NotBlank
+    @NotNull(groups = Order2.class)
+    @NotBlank(groups = Order3.class)
     private String customerName;
-    @NotNull
-    @Past
+
+    @NotNull(groups = Order4.class)
+    @Past(groups = Order5.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
     private LocalDate customerBirthday;
-    @NotNull
-    @NotBlank
+
+    @NotNull(groups = Order6.class)
+    @NotBlank(groups = Order7.class)
     private String customerTaxId;
-    @NotNull
-    @Positive
+
+    @NotNull(groups = Order8.class)
+    @Positive(groups = Order9.class)
     private BigDecimal customerMonthlyIncome;
-    @NotNull
-    @Positive
+
+    @NotNull(groups = Order10.class)
+    @Positive(groups = Order11.class)
     private BigDecimal loanAmount;
-    @NotNull
-    @Positive
+
+    @NotNull(groups = Order12.class)
+    @Positive(groups = Order13.class)
     private Integer numberOfInstallments;
-    @NotNull
-    @Future
+
+    @NotNull(groups = Order14.class)
+    @Future(groups = Order15.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
     private LocalDate firstInstallmentDate;
 }
