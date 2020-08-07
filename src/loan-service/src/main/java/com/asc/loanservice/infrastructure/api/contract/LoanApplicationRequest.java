@@ -1,10 +1,7 @@
 package com.asc.loanservice.infrastructure.api.contract;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 
 import static com.asc.loanservice.infrastructure.constant.Constants.DATE_FORMAT;
 
+@Builder(toBuilder = true)
 @Getter
 @Setter
 @NoArgsConstructor

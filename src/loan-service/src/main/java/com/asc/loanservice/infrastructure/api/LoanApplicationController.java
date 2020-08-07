@@ -5,22 +5,33 @@ import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.LoanApplicationFacade;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/loans")
-public class LoanApplicationController {
+class LoanApplicationController {
 
     private final LoanApplicationFacade loanApplicationFacade;
 
     @PostMapping
-    public LoanApplicationResult register(@RequestBody LoanApplicationRequest loanRequest){
-        return loanApplicationFacade.register(loanRequest);
+    public ResponseEntity<LoanApplicationResult> register(@RequestBody @Valid @NotNull LoanApplicationRequest loanRequest){
+        LoanApplicationResult register = loanApplicationFacade.register(loanRequest);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(register);
     }
 
     @GetMapping("/{loanNumber}")
-    public LoanApplicationView getByNumber(@PathVariable("loanNumber") String loanNumber){
-        return loanApplicationFacade.getByNumber(loanNumber);
+    public ResponseEntity<LoanApplicationView> getByNumber(@PathVariable("loanNumber") String loanNumber){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(loanApplicationFacade.getByNumber(loanNumber));
     }
 }

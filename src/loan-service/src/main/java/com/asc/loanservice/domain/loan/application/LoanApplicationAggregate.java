@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.NoSuchElementException;
 
 
@@ -35,7 +36,7 @@ class LoanApplicationAggregate {
 
     public LoanApplicationView getByNumber(String loanNumber){
         return loanApplicationDataProvider.findById(Long.valueOf(loanNumber))
-                .orElseThrow(NoSuchElementException::new)
+                .orElseThrow(EntityNotFoundException::new)
                 .prepareView();
     }
 }
