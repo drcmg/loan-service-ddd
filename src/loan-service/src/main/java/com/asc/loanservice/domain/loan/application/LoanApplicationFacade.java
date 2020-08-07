@@ -1,8 +1,8 @@
 package com.asc.loanservice.domain.loan.application;
 
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationView;
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationResult;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;
@@ -14,8 +14,7 @@ public class LoanApplicationFacade {
     public LoanApplicationFacade (
             LoanEvaluatorProviderPort loanEvaluatorProvider,
             LoanApplicationDataProviderPort loanApplicationDataProvider,
-            LoanMapperPort loanMapper
-    ){
+            LoanMapperPort loanMapper){
         this.loanApplicationAggregate = new LoanApplicationAggregate(
                         loanEvaluatorProvider,
                         loanApplicationDataProvider,

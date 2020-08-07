@@ -2,8 +2,8 @@ package com.asc.loanservice.infrastructure.repository.model;
 
 
 
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationEvaluationStatus;
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationView;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationEvaluationStatus;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.api.contracts;
+package com.asc.loanservice.infrastructure.api.contract;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

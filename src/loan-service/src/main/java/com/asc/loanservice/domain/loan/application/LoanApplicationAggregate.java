@@ -1,8 +1,8 @@
 package com.asc.loanservice.domain.loan.application;
 
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationResult;
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationView;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationResult;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;
@@ -22,7 +22,6 @@ class LoanApplicationAggregate {
     @NonNull private final LoanEvaluatorProviderPort loanEvaluatorProvider;
     @NonNull private final LoanApplicationDataProviderPort loanApplicationDataProvider;
     @NonNull private final LoanMapperPort loanMapper;
-
 
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
         LoanApplicationRoot loanApplicationRoot =

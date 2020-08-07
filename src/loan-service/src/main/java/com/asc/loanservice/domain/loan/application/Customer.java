@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Builder
 public class Customer {
+
     private final String customerName;
     private final LocalDate customerBirthday;
     private final String customerTaxId;

@@ -1,6 +1,6 @@
 package com.asc.loanservice.infrastructure;
 
-import com.asc.loanservice.infrastructure.api.contracts.LoanApplicationRequest;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.rule.Rule;
 import org.springframework.stereotype.Service;
