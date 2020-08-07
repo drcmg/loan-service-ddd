@@ -39,7 +39,7 @@ public class LoanApplication {
     private LocalDateTime createdDate;
 
 
-    public LoanApplicationView prepareView(){
+    public LoanApplicationView prepareLoanApplicationView(){
         return LoanApplicationView.builder()
                 .loanRequestNumber(loanRequestNumber)
                 .customerName(customerName)

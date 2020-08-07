@@ -13,7 +13,6 @@ import lombok.Builder;
 import lombok.NonNull;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.NoSuchElementException;
 
 
 @Builder
@@ -30,13 +29,14 @@ class LoanApplicationAggregate {
         LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.evaluate(loanApplicationRequest);
 
         loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
-        LoanApplication loanApplication = loanApplicationDataProvider.save(loanApplicationRoot.toModel());
+        LoanApplication loanApplication =
+                loanApplicationDataProvider.save(loanApplicationRoot.prepareLoanApplicationModel());
         return loanApplicationRoot.prepareRegistrationResultView(loanApplication);
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
         return loanApplicationDataProvider.findByLoanRequestNumber(loanNumber)
                 .orElseThrow(EntityNotFoundException::new)
-                .prepareView();
+                .prepareLoanApplicationView();
     }
 }

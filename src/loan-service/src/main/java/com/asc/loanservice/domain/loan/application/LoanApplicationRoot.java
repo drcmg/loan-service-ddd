@@ -63,7 +63,7 @@ class LoanApplicationRoot {
                : LoanApplicationEvaluationStatus.REJECTED;
     }
 
-    LoanApplication toModel(){
+    LoanApplication prepareLoanApplicationModel(){
         return LoanApplication.builder()
                 .loanRequestNumber(loanRequestNumber)
                 .customerName(customer.getCustomerName())
