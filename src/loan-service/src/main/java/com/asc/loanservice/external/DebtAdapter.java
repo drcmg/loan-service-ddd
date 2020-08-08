@@ -30,7 +30,7 @@ public class DebtAdapter implements DebtPort {
     }
 
     @Override
-    public DebtCustomerResult checkDebtClient(String customerTaxId) {
+    public DebtCustomerResult checkCustomerDebt(String customerTaxId) {
         Map<String, String> id = new HashMap<>();
         id.put("id", customerTaxId);
         URI uri = UriComponentsBuilder.fromUriString(deptRegistryUri).build(id);
