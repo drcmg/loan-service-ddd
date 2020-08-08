@@ -1,9 +1,9 @@
 package com.asc.loanservice.infrastructure.api;
 
-import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
+import com.asc.loanservice.domain.loan.application.LoanApplicationFacade;
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationResult;
-import com.asc.loanservice.domain.loan.application.LoanApplicationFacade;
+import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
 import com.asc.loanservice.infrastructure.constant.ValidationOrder;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,10 +15,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
 
+
 @Validated(ValidationOrder.class)
 @AllArgsConstructor
-@RestController
 @RequestMapping("/api/loans")
+@RestController
 class LoanApplicationController {
 
     private final LoanApplicationFacade loanApplicationFacade;

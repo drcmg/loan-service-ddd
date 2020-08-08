@@ -7,6 +7,7 @@ import com.asc.loanservice.domain.loan.rule.port.DebtPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 @Configuration
 public class RuleConfiguration {
     

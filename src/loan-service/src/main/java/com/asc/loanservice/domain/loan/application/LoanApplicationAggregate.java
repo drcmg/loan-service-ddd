@@ -31,6 +31,7 @@ class LoanApplicationAggregate {
         loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
         LoanApplication loanApplication =
                 loanApplicationDataProvider.save(loanApplicationRoot.prepareLoanApplicationModel());
+
         return loanApplicationRoot.prepareRegistrationResultView(loanApplication);
     }
 

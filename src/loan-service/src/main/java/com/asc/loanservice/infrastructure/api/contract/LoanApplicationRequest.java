@@ -1,20 +1,17 @@
 package com.asc.loanservice.infrastructure.api.contract;
 
-import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.Getter;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static com.asc.loanservice.infrastructure.constant.Constants.DATE_FORMAT;
+import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
 
-@Builder(toBuilder = true)
+
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class LoanApplicationRequest {
 
     @NotNull(groups = Order2.class)

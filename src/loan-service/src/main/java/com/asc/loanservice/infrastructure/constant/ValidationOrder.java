@@ -2,7 +2,9 @@ package com.asc.loanservice.infrastructure.constant;
 
 import javax.validation.GroupSequence;
 import javax.validation.groups.Default;
+
 import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
+
 
 @GroupSequence({
         Default.class,
@@ -22,6 +24,7 @@ import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
         Order15.class,
 })
 public interface ValidationOrder {
+
     interface Order2 { }
     interface Order3 { }
     interface Order4 { }

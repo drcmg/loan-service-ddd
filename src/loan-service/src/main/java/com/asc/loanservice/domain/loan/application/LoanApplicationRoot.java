@@ -10,32 +10,35 @@ import lombok.Builder;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
+
 @Builder
 class LoanApplicationRoot {
 
     private final String loanRequestNumber;
     private final Customer customer;
     private final Loan loan;
-    private LoanEvaluationStatus loanEvaluationStatus;
     private final LocalDateTime createdDate;
+    private LoanEvaluationStatus loanEvaluationStatus;
 
     static LoanApplicationRoot create(LoanApplicationCreateInput loanApplicationCreateInput) {
         return LoanApplicationRoot.builder()
                 .loanRequestNumber(UUID.randomUUID().toString())
-                .customer(Customer.builder()
-                        .customerName(loanApplicationCreateInput.getCustomerName())
-                        .customerBirthday(loanApplicationCreateInput.getCustomerBirthday())
-                        .customerTaxId(loanApplicationCreateInput.getCustomerTaxId())
-                        .customerMonthlyIncome(loanApplicationCreateInput.getCustomerMonthlyIncome())
+                .customer(
+                    Customer.builder()
+                                .customerName(loanApplicationCreateInput.getCustomerName())
+                                .customerBirthday(loanApplicationCreateInput.getCustomerBirthday())
+                                .customerTaxId(loanApplicationCreateInput.getCustomerTaxId())
+                                .customerMonthlyIncome(loanApplicationCreateInput.getCustomerMonthlyIncome())
+                            .build()
+                )
+                .loan(
+                    Loan.builder()
+                            .loanAmount(loanApplicationCreateInput.getLoanAmount())
+                            .numberOfInstallments(loanApplicationCreateInput.getNumberOfInstallments())
+                            .firstInstallmentDate(loanApplicationCreateInput.getFirstInstallmentDate())
                         .build()
                 )
-                .loan(Loan.builder()
-                        .loanAmount(loanApplicationCreateInput.getLoanAmount())
-                        .numberOfInstallments(loanApplicationCreateInput.getNumberOfInstallments())
-                        .firstInstallmentDate(loanApplicationCreateInput.getFirstInstallmentDate())
-                        .build()
-                )
-                .build();
+            .build();
     }
 
     void changeLoanEvaluationStatus(LoanEvaluationResult loanEvaluationResult){
@@ -54,7 +57,7 @@ class LoanApplicationRoot {
                 .evaluationResult(
                         mapLoanEvaluationStatusToDto(loanApplication)
                 )
-                .build();
+            .build();
     }
 
     private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanApplication loanApplication) {
@@ -73,13 +76,17 @@ class LoanApplicationRoot {
                 .loanAmount(loan.getLoanAmount())
                 .firstInstallmentDate(loan.getFirstInstallmentDate())
                 .numberOfInstallments(loan.getNumberOfInstallments())
-                .loanEvaluationStatus(mapLoanEvaluationStatusToModelStatus(loanEvaluationStatus))
-                .build();
+                .loanEvaluationStatus(
+                        mapLoanEvaluationStatusToModelStatus(loanEvaluationStatus)
+                )
+            .build();
     }
 
-    private com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus mapLoanEvaluationStatusToModelStatus(LoanEvaluationStatus loanEvaluationResult){
-        return com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
-                ? com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS
-                : com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.FAILURE;
+    private com.asc.loanservice.infrastructure.repository.model.
+            LoanEvaluationStatus mapLoanEvaluationStatusToModelStatus(LoanEvaluationStatus loanEvaluationResult){
+        return com.asc.loanservice.infrastructure.repository.model.
+                LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
+                    ? com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS
+                    : com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.FAILURE;
     }
 }

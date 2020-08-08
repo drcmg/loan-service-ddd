@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+
 @Service
 public class DebtAdapter implements DebtPort {
 
@@ -41,6 +42,8 @@ public class DebtAdapter implements DebtPort {
                 .map(CustomerCheckResultDto::getIsRegisteredDebtor)
                 .orElse(false);
 
-        return isRegisteredDebtor ? DebtCustomerResult.FAILURE : DebtCustomerResult.SUCCESS ;
+        return isRegisteredDebtor
+                ? DebtCustomerResult.FAILURE
+                : DebtCustomerResult.SUCCESS ;
     }
 }

@@ -2,8 +2,12 @@ package com.asc.loanservice.infrastructure.constant;
 
 import java.math.BigDecimal;
 
+
 public final class Constants {
+
     public static final String DATE_FORMAT = "yyyy-MM-dd";
+
+    public static final Integer MAX_CUSTOMER_AGE = 65;
 
     public static final Integer CALCULATION_SCALE = 10;
     public static final Integer RESULT_SCALE = 2;

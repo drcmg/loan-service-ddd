@@ -1,7 +1,5 @@
 package com.asc.loanservice.infrastructure.repository.model;
 
-
-
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationEvaluationStatus;
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
 import lombok.AllArgsConstructor;
@@ -15,16 +13,16 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
+
 @Builder
+@Getter
+@AllArgsConstructor
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "loanRequestNumber"
         })
 })
-@AllArgsConstructor
-@NoArgsConstructor
 public class LoanApplication {
 
     @Id
@@ -43,20 +41,21 @@ public class LoanApplication {
     @CreationTimestamp
     private LocalDateTime createdDate;
 
-
     public LoanApplicationView prepareLoanApplicationView(){
         return LoanApplicationView.builder()
-                .loanRequestNumber(loanRequestNumber)
-                .customerName(customerName)
-                .customerBirthday(customerBirthday)
-                .customerTaxId(customerTaxId)
-                .customerMonthlyIncome(customerMonthlyIncome)
-                .loanAmount(loanAmount)
-                .numberOfInstallments(numberOfInstallments)
-                .firstInstallmentDate(firstInstallmentDate)
-                .registrationDate(createdDate)
-                .evaluationResult(mapLoanEvaluationStatusToDto(loanEvaluationStatus))
-                .build();
+                            .loanRequestNumber(loanRequestNumber)
+                            .customerName(customerName)
+                            .customerBirthday(customerBirthday)
+                            .customerTaxId(customerTaxId)
+                            .customerMonthlyIncome(customerMonthlyIncome)
+                            .loanAmount(loanAmount)
+                            .numberOfInstallments(numberOfInstallments)
+                            .firstInstallmentDate(firstInstallmentDate)
+                            .registrationDate(createdDate)
+                            .evaluationResult(
+                                    mapLoanEvaluationStatusToDto(loanEvaluationStatus)
+                            )
+                        .build();
     }
 
     private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanEvaluationStatus loanEvaluationStatus) {

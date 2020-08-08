@@ -1,17 +1,15 @@
 package com.asc.loanservice.infrastructure.exception;
 
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
-@AllArgsConstructor
+
 @RestControllerAdvice
 class GlobalExceptionHandler {
 
@@ -22,6 +20,7 @@ class GlobalExceptionHandler {
                 .map(e -> String.format("%s value '%s' %s", getPropertyNameFromConstraint(e),
                         e.getInvalidValue(), e.getMessage()))
                 .orElse("Unknown exception");
+
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(ExceptionFormat.builder()

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
 @AllArgsConstructor
 @Service
 public class LoanApplicationDataProviderAdapter implements LoanApplicationDataProviderPort {

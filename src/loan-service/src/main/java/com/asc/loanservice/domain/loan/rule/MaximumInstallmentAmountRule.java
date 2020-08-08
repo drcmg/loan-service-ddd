@@ -7,11 +7,11 @@ import java.math.RoundingMode;
 
 import static com.asc.loanservice.infrastructure.constant.Constants.*;
 
+
 public class MaximumInstallmentAmountRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {
-
         BigDecimal customerMonthlyIncome = loanApplicationRequest.getCustomerMonthlyIncome();
         BigDecimal loanAmount = loanApplicationRequest.getLoanAmount();
         Integer numberOfInstallments = loanApplicationRequest.getNumberOfInstallments();
@@ -22,18 +22,16 @@ public class MaximumInstallmentAmountRule implements Rule {
         return amountOfMonthlyInstallment.compareTo(maximumInstallmentAmount) <= 0;
     }
 
-
     /*
         I = (N * r) / (k * (1 - (k / (k + r))^n))
 
-        I - amount of monthly installment
+        I - amount of equal monthly installment
         N - amount of loan
         r - annual interest rate
         k - annual amount of installments
         n - number of installments
     */
     private BigDecimal calculatePMT(Integer numberOfInstallments, BigDecimal loanAmount){
-
         //product = N * r
         BigDecimal product = ANNUAL_INTEREST_RATE.multiply(loanAmount);
 
