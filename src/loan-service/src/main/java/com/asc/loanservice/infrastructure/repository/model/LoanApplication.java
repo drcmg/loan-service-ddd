@@ -18,6 +18,11 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @Entity
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "loanRequestNumber"
+        })
+})
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoanApplication {
