@@ -1,7 +1,7 @@
 package com.asc.loanservice.domain.loan.rule;
 
 import com.asc.loanservice.domain.loan.rule.port.DebtPort;
-import com.asc.loanservice.external.DebtCustomerResult;
+import com.asc.loanservice.domain.loan.rule.port.DebtCustomerResult;
 import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
 import lombok.AllArgsConstructor;
 

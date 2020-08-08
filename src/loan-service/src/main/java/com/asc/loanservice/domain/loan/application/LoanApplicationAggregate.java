@@ -6,7 +6,7 @@ import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.port.LoanApplicationDataProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.port.LoanMapperPort;
-import com.asc.loanservice.infrastructure.LoanEvaluationResult;
+import com.asc.loanservice.domain.loan.application.port.LoanEvaluationResult;
 import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
