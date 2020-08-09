@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.exception;
+package com.asc.loanservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

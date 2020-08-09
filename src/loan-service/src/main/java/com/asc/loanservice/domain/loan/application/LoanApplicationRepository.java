@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 interface LoanApplicationRepository extends CrudRepository<LoanApplicationRoot, Long> {
 
-    Optional<LoanApplication> findByLoanRequestNumber(String loanRequestNumber);
+    Optional<LoanApplicationRoot> findByLoanRequestNumber(String loanRequestNumber);
 }

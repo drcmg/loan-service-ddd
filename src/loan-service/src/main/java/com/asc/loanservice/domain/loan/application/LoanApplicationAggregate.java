@@ -17,11 +17,11 @@ import javax.persistence.EntityNotFoundException;
 @Builder
 @AllArgsConstructor
 @Service
-class LoanApplicationAggregate {
+public class LoanApplicationAggregate {
 
     @NonNull private final LoanEvaluatorProviderPort loanEvaluatorProvider;
     @NonNull private final LoanApplicationRepository loanApplicationRepository;
-    @NonNull private final LoanMapperPort loanMapper;
+    @NonNull private final LoanMapper loanMapper;
 
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
         LoanApplicationRoot loanApplicationRoot =

@@ -24,7 +24,7 @@ class LoanApplicationRoot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private final Long id;
     private final String loanRequestNumber;
     @Embedded
     private final Customer customer;
