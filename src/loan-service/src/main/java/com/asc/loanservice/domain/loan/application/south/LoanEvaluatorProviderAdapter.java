@@ -1,6 +1,6 @@
 package com.asc.loanservice.domain.loan.application.south;
 
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.LoanEvaluationResult;
 import com.asc.loanservice.domain.loan.application.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.evaluation.LoanEvaluationAggregate;

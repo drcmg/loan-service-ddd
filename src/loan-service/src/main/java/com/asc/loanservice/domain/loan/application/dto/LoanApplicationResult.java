@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.application.contract;
+package com.asc.loanservice.domain.loan.application.dto;
 
 
 import lombok.Builder;

@@ -1,9 +1,9 @@
 package com.asc.loanservice.domain.loan.application.north;
 
 import com.asc.loanservice.domain.loan.application.LoanApplicationAggregate;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationRequest;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationResult;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationView;
 import com.asc.loanservice.constant.ValidationOrder;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

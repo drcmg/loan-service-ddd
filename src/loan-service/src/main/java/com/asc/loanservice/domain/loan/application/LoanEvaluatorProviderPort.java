@@ -1,6 +1,6 @@
 package com.asc.loanservice.domain.loan.application;
 
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationRequest;
 
 
 public interface LoanEvaluatorProviderPort {

@@ -1,9 +1,9 @@
 package com.asc.loanservice.domain.loan.application;
 
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationCreateInput;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvaluationStatus;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
-import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationCreateInput;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationEvaluationStatus;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationResult;
+import com.asc.loanservice.domain.loan.application.dto.LoanApplicationView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
