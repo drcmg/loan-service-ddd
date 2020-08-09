@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.api.contract;
+package com.asc.loanservice.domain.loan.application.contract;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

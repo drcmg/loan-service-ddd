@@ -1,6 +1,6 @@
 package com.asc.loanservice.domain.loan.rule;
 
-import com.asc.loanservice.infrastructure.api.contract.LoanApplicationRequest;
+import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 
 import java.time.LocalDate;
 import java.time.Period;

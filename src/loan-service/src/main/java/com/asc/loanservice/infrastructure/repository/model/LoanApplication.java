@@ -1,11 +1,10 @@
 package com.asc.loanservice.infrastructure.repository.model;
 
-import com.asc.loanservice.infrastructure.api.contract.LoanApplicationEvaluationStatus;
-import com.asc.loanservice.infrastructure.api.contract.LoanApplicationView;
+import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvaluationStatus;
+import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
