@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.api;
+package com.asc.loanservice.domain.loan.application.north;
 
 import com.asc.loanservice.domain.loan.application.LoanApplicationFacade;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
