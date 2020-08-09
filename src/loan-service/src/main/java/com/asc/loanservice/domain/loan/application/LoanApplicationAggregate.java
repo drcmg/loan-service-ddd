@@ -5,7 +5,6 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResul
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.south.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
-import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
@@ -29,10 +28,9 @@ public class LoanApplicationAggregate {
         LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.evaluate(loanApplicationRequest);
 
         loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
-        LoanApplication loanApplication =
-                loanApplicationRepository.save(loanApplicationRoot.prepareLoanApplicationModel());
+        loanApplicationRepository.save(loanApplicationRoot);
 
-        return loanApplicationRoot.prepareRegistrationResultView(loanApplication);
+        return loanApplicationRoot.prepareRegistrationResultView();
     }
 
     public LoanApplicationView getByNumber(String loanNumber){

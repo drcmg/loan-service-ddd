@@ -1,7 +1,10 @@
 package com.asc.loanservice.domain.loan.application;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,11 +12,13 @@ import java.time.LocalDate;
 
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
-public class Customer {
+class Customer {
 
-    private final String customerName;
-    private final LocalDate customerBirthday;
-    private final String customerTaxId;
-    private final BigDecimal customerMonthlyIncome;
+    private String customerName;
+    private LocalDate customerBirthday;
+    private String customerTaxId;
+    private BigDecimal customerMonthlyIncome;
 }

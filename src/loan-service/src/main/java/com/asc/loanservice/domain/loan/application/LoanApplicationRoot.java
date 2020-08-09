@@ -3,8 +3,8 @@ package com.asc.loanservice.domain.loan.application;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationCreateInput;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvaluationStatus;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
+import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
-import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.Builder;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -66,42 +66,41 @@ class LoanApplicationRoot {
                 : LoanEvaluationStatus.FAILURE;
     }
 
-    LoanApplicationResult prepareRegistrationResultView(LoanApplication loanApplication){
+    LoanApplicationResult prepareRegistrationResultView(){
         return LoanApplicationResult.builder()
-                .loanRequestNumber(loanApplication.getLoanRequestNumber())
+                .loanRequestNumber(loanRequestNumber)
                 .evaluationResult(
-                        mapLoanEvaluationStatusToDto(loanApplication)
+                        mapLoanEvaluationStatusToDto()
                 )
             .build();
     }
 
-    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanApplication loanApplication) {
-        return LoanEvaluationStatus.SUCCESS.name().equals(loanApplication.getLoanEvaluationStatus().name())
+    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto() {
+        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationStatus.name())
                ? LoanApplicationEvaluationStatus.APPROVED
                : LoanApplicationEvaluationStatus.REJECTED;
     }
 
-    LoanApplication prepareLoanApplicationModel(){
-        return LoanApplication.builder()
+    public LoanApplicationView prepareLoanApplicationView(){
+        return LoanApplicationView.builder()
                 .loanRequestNumber(loanRequestNumber)
                 .customerName(customer.getCustomerName())
                 .customerBirthday(customer.getCustomerBirthday())
-                .customerMonthlyIncome(customer.getCustomerMonthlyIncome())
                 .customerTaxId(customer.getCustomerTaxId())
+                .customerMonthlyIncome(customer.getCustomerMonthlyIncome())
                 .loanAmount(loan.getLoanAmount())
-                .firstInstallmentDate(loan.getFirstInstallmentDate())
                 .numberOfInstallments(loan.getNumberOfInstallments())
-                .loanEvaluationStatus(
-                        mapLoanEvaluationStatusToModelStatus(loanEvaluationStatus)
+                .firstInstallmentDate(loan.getFirstInstallmentDate())
+                .registrationDate(createdDate)
+                .evaluationResult(
+                        mapLoanEvaluationStatusToDto(loanEvaluationStatus)
                 )
-            .build();
+                .build();
     }
 
-    private com.asc.loanservice.infrastructure.repository.model.
-            LoanEvaluationStatus mapLoanEvaluationStatusToModelStatus(LoanEvaluationStatus loanEvaluationResult){
-        return com.asc.loanservice.infrastructure.repository.model.
-                LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
-                    ? com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.SUCCESS
-                    : com.asc.loanservice.infrastructure.repository.model.LoanEvaluationStatus.FAILURE;
+    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanEvaluationStatus loanEvaluationStatus) {
+        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationStatus.name())
+                ? LoanApplicationEvaluationStatus.APPROVED
+                : LoanApplicationEvaluationStatus.REJECTED;
     }
 }
