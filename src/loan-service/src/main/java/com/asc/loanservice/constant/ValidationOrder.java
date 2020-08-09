@@ -1,9 +1,9 @@
-package com.asc.loanservice.infrastructure.constant;
+package com.asc.loanservice.constant;
 
 import javax.validation.GroupSequence;
 import javax.validation.groups.Default;
 
-import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
+import static com.asc.loanservice.constant.ValidationOrder.*;
 
 
 @GroupSequence({

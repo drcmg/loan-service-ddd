@@ -3,7 +3,7 @@ package com.asc.loanservice.domain.loan.application.north;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
-import com.asc.loanservice.infrastructure.constant.ValidationOrder;
+import com.asc.loanservice.constant.ValidationOrder;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

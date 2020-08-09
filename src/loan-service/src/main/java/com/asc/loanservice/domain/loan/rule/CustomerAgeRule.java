@@ -5,7 +5,7 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationReque
 import java.time.LocalDate;
 import java.time.Period;
 
-import static com.asc.loanservice.infrastructure.constant.Constants.*;
+import static com.asc.loanservice.constant.Constants.*;
 
 
 public class CustomerAgeRule implements Rule {

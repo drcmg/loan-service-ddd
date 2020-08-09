@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.constant;
+package com.asc.loanservice.constant;
 
 import java.math.BigDecimal;
 

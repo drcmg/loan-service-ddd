@@ -5,7 +5,7 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationReque
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static com.asc.loanservice.infrastructure.constant.Constants.*;
+import static com.asc.loanservice.constant.Constants.*;
 
 
 public class MaximumInstallmentAmountRule implements Rule {

@@ -7,8 +7,8 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static com.asc.loanservice.infrastructure.constant.Constants.DATE_FORMAT;
-import static com.asc.loanservice.infrastructure.constant.ValidationOrder.*;
+import static com.asc.loanservice.constant.Constants.DATE_FORMAT;
+import static com.asc.loanservice.constant.ValidationOrder.*;
 
 
 @Getter
