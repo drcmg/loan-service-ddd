@@ -1,4 +1,4 @@
-package com.asc.loanservice.infrastructure.repository;
+package com.asc.loanservice.domain.loan.application;
 
 import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import org.springframework.data.repository.CrudRepository;
@@ -8,7 +8,7 @@ import java.util.Optional;
 
 
 @Repository
-public interface LoanApplicationRepository extends CrudRepository<LoanApplication, Long> {
+interface LoanApplicationRepository extends CrudRepository<LoanApplicationRoot, Long> {
 
     Optional<LoanApplication> findByLoanRequestNumber(String loanRequestNumber);
 }

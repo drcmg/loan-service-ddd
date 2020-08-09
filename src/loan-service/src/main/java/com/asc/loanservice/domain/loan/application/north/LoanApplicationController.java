@@ -1,6 +1,5 @@
 package com.asc.loanservice.domain.loan.application.north;
 
-import com.asc.loanservice.domain.loan.application.LoanApplicationFacade;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;

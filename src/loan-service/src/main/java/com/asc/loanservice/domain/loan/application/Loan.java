@@ -3,12 +3,14 @@ package com.asc.loanservice.domain.loan.application;
 import lombok.Builder;
 import lombok.Getter;
 
+import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
 @Getter
 @Builder
+@Embeddable
 class Loan {
 
     private final BigDecimal loanAmount;

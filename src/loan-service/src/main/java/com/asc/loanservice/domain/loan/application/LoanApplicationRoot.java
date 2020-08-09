@@ -3,21 +3,36 @@ package com.asc.loanservice.domain.loan.application;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationCreateInput;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvaluationStatus;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
-import com.asc.loanservice.domain.loan.application.port.LoanEvaluationResult;
+import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
 import com.asc.loanservice.infrastructure.repository.model.LoanApplication;
 import lombok.Builder;
+import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
 
 @Builder
+@Entity
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "loanRequestNumber"
+        })
+})
 class LoanApplicationRoot {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private final String loanRequestNumber;
+    @Embedded
     private final Customer customer;
+    @Embedded
     private final Loan loan;
+    @CreationTimestamp
     private final LocalDateTime createdDate;
+    @Enumerated(value = EnumType.STRING)
     private LoanEvaluationStatus loanEvaluationStatus;
 
     static LoanApplicationRoot create(LoanApplicationCreateInput loanApplicationCreateInput) {

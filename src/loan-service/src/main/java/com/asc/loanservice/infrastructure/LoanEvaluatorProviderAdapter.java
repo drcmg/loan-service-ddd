@@ -1,8 +1,8 @@
 package com.asc.loanservice.infrastructure;
 
-import com.asc.loanservice.domain.loan.application.port.LoanEvaluationResult;
+import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.application.port.LoanEvaluatorProviderPort;
+import com.asc.loanservice.domain.loan.application.south.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.rule.Rule;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

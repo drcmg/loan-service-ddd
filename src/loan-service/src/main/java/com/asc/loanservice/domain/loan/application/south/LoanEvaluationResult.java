@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.application.port;
+package com.asc.loanservice.domain.loan.application.south;
 
 
 public enum LoanEvaluationResult {

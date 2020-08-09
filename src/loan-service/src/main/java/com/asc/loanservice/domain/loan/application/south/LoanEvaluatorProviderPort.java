@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.application.port;
+package com.asc.loanservice.domain.loan.application.south;
 
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 
