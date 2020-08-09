@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface LoanEvaluationRepository extends CrudRepository<LoanEvaluationRoot, Long> {
+interface LoanEvaluationRepository extends CrudRepository<LoanEvaluationRoot, Long> {
 
     Optional<LoanEvaluationRoot> findByLoanRequestNumber(String loanRequestNumber);
 }

@@ -1,7 +1,5 @@
-package com.asc.loanservice.domain.loan.evaluation.rule;
+package com.asc.loanservice.domain.loan.evaluation;
 
-import com.asc.loanservice.domain.loan.evaluation.south.DebtPort;
-import com.asc.loanservice.domain.loan.evaluation.south.DebtCustomerResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component
-class NotExistInDeptRegisterRule implements Rule {
+class RuleNotExistInDeptRegister implements Rule {
 
     private final DebtPort debtPort;
 

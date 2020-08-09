@@ -4,7 +4,6 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationCreat
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvaluationStatus;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
-import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

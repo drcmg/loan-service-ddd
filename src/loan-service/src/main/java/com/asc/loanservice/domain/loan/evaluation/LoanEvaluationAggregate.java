@@ -1,7 +1,6 @@
 package com.asc.loanservice.domain.loan.evaluation;
 
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
-import com.asc.loanservice.domain.loan.evaluation.rule.Rule;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

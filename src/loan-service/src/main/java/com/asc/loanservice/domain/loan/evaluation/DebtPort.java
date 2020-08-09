@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.evaluation.south;
+package com.asc.loanservice.domain.loan.evaluation;
 
 
 public interface DebtPort {

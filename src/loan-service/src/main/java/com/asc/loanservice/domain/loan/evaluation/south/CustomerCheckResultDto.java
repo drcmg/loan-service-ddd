@@ -1,4 +1,4 @@
-package com.asc.loanservice.external;
+package com.asc.loanservice.domain.loan.evaluation.south;
 
 import lombok.Getter;
 

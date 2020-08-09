@@ -1,4 +1,4 @@
-package com.asc.loanservice.external.config;
+package com.asc.loanservice.domain.loan.evaluation.south.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

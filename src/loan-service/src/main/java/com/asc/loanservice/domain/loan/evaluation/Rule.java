@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.evaluation.rule;
+package com.asc.loanservice.domain.loan.evaluation;
 
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 

@@ -3,8 +3,6 @@ package com.asc.loanservice.domain.loan.application;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
-import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
-import com.asc.loanservice.domain.loan.application.south.LoanEvaluatorProviderPort;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;

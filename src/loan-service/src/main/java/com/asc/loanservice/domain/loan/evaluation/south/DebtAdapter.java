@@ -1,7 +1,7 @@
-package com.asc.loanservice.external;
+package com.asc.loanservice.domain.loan.evaluation.south;
 
-import com.asc.loanservice.domain.loan.evaluation.south.DebtCustomerResult;
-import com.asc.loanservice.domain.loan.evaluation.south.DebtPort;
+import com.asc.loanservice.domain.loan.evaluation.DebtCustomerResult;
+import com.asc.loanservice.domain.loan.evaluation.DebtPort;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;

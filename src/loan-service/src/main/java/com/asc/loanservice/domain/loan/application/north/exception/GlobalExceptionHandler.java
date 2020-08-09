@@ -1,4 +1,4 @@
-package com.asc.loanservice.exception;
+package com.asc.loanservice.domain.loan.application.north.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
