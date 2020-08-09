@@ -8,6 +8,7 @@ import java.time.Period;
 
 import static com.asc.loanservice.constant.Constants.*;
 
+
 @Component
 class RuleCustomerAge implements Rule {
 

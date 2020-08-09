@@ -18,25 +18,21 @@ public class LoanApplicationAggregate {
 
     @NonNull private final LoanEvaluatorProviderPort loanEvaluatorProvider;
     @NonNull private final LoanApplicationRepository loanApplicationRepository;
-    @NonNull private final LoanMapper loanMapper;
+    @NonNull private final LoanApplicationRequestMapper loanApplicationRequestMapper;
 
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
         LoanApplicationRoot loanApplicationRoot =
-                LoanApplicationRoot.create(loanMapper.createInput(loanApplicationRequest));
+                LoanApplicationRoot.create(loanApplicationRequestMapper.createInput(loanApplicationRequest));
         LoanEvaluationResult loanEvaluationResult =
                 loanEvaluatorProvider.evaluate(loanApplicationRequest, loanApplicationRoot.getLoanRequestNumber());
 
-//        loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
         loanApplicationRepository.save(loanApplicationRoot);
 
         return loanApplicationRoot.prepareRegistrationResultView(loanEvaluationResult);
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
-
         LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.getLoanApplicationEvaluationResult(loanNumber);
-
-
 
         return loanApplicationRepository.findByLoanRequestNumber(loanNumber)
                 .orElseThrow(EntityNotFoundException::new)

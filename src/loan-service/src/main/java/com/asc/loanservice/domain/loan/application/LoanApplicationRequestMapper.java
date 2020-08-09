@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Mapper
 @Component
-interface LoanMapper {
+interface LoanApplicationRequestMapper {
 
     LoanApplicationCreateInput createInput(LoanApplicationRequest loanApplicationRequest);
 }

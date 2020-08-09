@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Mapper
 @Component
-public interface LoanEvaluationResultAdapterMapper {
+interface LoanEvaluationResultAdapterMapper {
 
     com.asc.loanservice.domain.loan.application.LoanEvaluationResult mapResult(LoanEvaluationResult loanEvaluationResult);
 }

@@ -9,6 +9,6 @@ import lombok.Getter;
 @Builder
 public class LoanApplicationResult {
 
-    private String loanRequestNumber;
-    private LoanApplicationEvaluationStatus evaluationResult;
+    private final String loanRequestNumber;
+    private final LoanApplicationEvaluationStatus evaluationResult;
 }

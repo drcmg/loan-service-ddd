@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 @Builder
 public class LoanApplicationView {
 
-    private String loanRequestNumber;
-    private String customerName;
-    private LocalDate customerBirthday;
-    private String customerTaxId;
-    private BigDecimal customerMonthlyIncome;
-    private BigDecimal loanAmount;
-    private Integer numberOfInstallments;
-    private LocalDate firstInstallmentDate;
-    private LoanApplicationEvaluationStatus evaluationResult;
-    private LocalDateTime registrationDate;
+    private final String loanRequestNumber;
+    private final String customerName;
+    private final LocalDate customerBirthday;
+    private final String customerTaxId;
+    private final BigDecimal customerMonthlyIncome;
+    private final BigDecimal loanAmount;
+    private final Integer numberOfInstallments;
+    private final LocalDate firstInstallmentDate;
+    private final LoanApplicationEvaluationStatus evaluationResult;
+    private final LocalDateTime registrationDate;
 }

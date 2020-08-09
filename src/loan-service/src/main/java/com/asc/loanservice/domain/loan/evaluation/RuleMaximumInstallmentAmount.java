@@ -8,6 +8,7 @@ import java.math.RoundingMode;
 
 import static com.asc.loanservice.constant.Constants.*;
 
+
 @Component
 class RuleMaximumInstallmentAmount implements Rule {
 
