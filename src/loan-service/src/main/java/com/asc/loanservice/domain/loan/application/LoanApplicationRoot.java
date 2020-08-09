@@ -5,15 +5,20 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationEvalu
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
 import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.UUID;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -24,16 +29,15 @@ class LoanApplicationRoot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Long id;
-    private final String loanRequestNumber;
+    private Long id;
+    @Getter
+    private String loanRequestNumber;
     @Embedded
-    private final Customer customer;
+    private Customer customer;
     @Embedded
-    private final Loan loan;
+    private Loan loan;
     @CreationTimestamp
-    private final LocalDateTime createdDate;
-    @Enumerated(value = EnumType.STRING)
-    private LoanEvaluationStatus loanEvaluationStatus;
+    private LocalDateTime createdDate;
 
     static LoanApplicationRoot create(LoanApplicationCreateInput loanApplicationCreateInput) {
         return LoanApplicationRoot.builder()
@@ -56,32 +60,16 @@ class LoanApplicationRoot {
             .build();
     }
 
-    void changeLoanEvaluationStatus(LoanEvaluationResult loanEvaluationResult){
-        this.loanEvaluationStatus = mapLoanEvaluationResultToStatus(loanEvaluationResult);
-    }
-
-    private LoanEvaluationStatus mapLoanEvaluationResultToStatus(LoanEvaluationResult loanEvaluationResult){
-        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
-                ? LoanEvaluationStatus.SUCCESS
-                : LoanEvaluationStatus.FAILURE;
-    }
-
-    LoanApplicationResult prepareRegistrationResultView(){
+    LoanApplicationResult prepareRegistrationResultView(LoanEvaluationResult loanEvaluationResult){
         return LoanApplicationResult.builder()
                 .loanRequestNumber(loanRequestNumber)
                 .evaluationResult(
-                        mapLoanEvaluationStatusToDto()
+                        mapLoanEvaluationStatusToDto(loanEvaluationResult)
                 )
             .build();
     }
 
-    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto() {
-        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationStatus.name())
-               ? LoanApplicationEvaluationStatus.APPROVED
-               : LoanApplicationEvaluationStatus.REJECTED;
-    }
-
-    public LoanApplicationView prepareLoanApplicationView(){
+    LoanApplicationView prepareLoanApplicationView(LoanEvaluationResult loanEvaluationResult){
         return LoanApplicationView.builder()
                 .loanRequestNumber(loanRequestNumber)
                 .customerName(customer.getCustomerName())
@@ -93,13 +81,13 @@ class LoanApplicationRoot {
                 .firstInstallmentDate(loan.getFirstInstallmentDate())
                 .registrationDate(createdDate)
                 .evaluationResult(
-                        mapLoanEvaluationStatusToDto(loanEvaluationStatus)
+                        mapLoanEvaluationStatusToDto(loanEvaluationResult)
                 )
                 .build();
     }
 
-    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanEvaluationStatus loanEvaluationStatus) {
-        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationStatus.name())
+    private LoanApplicationEvaluationStatus mapLoanEvaluationStatusToDto(LoanEvaluationResult loanEvaluationResult) {
+        return LoanEvaluationStatus.SUCCESS.name().equals(loanEvaluationResult.name())
                 ? LoanApplicationEvaluationStatus.APPROVED
                 : LoanApplicationEvaluationStatus.REJECTED;
     }

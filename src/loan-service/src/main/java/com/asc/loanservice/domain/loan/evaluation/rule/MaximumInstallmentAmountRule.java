@@ -1,14 +1,15 @@
-package com.asc.loanservice.domain.loan.rule;
+package com.asc.loanservice.domain.loan.evaluation.rule;
 
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import static com.asc.loanservice.constant.Constants.*;
 
-
-public class MaximumInstallmentAmountRule implements Rule {
+@Component
+class MaximumInstallmentAmountRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {

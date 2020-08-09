@@ -3,8 +3,8 @@ package com.asc.loanservice.domain.loan.application;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationView;
-import com.asc.loanservice.domain.loan.application.south.LoanEvaluatorProviderPort;
 import com.asc.loanservice.domain.loan.application.south.LoanEvaluationResult;
+import com.asc.loanservice.domain.loan.application.south.LoanEvaluatorProviderPort;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
@@ -25,17 +25,23 @@ public class LoanApplicationAggregate {
     public LoanApplicationResult register(LoanApplicationRequest loanApplicationRequest) {
         LoanApplicationRoot loanApplicationRoot =
                 LoanApplicationRoot.create(loanMapper.createInput(loanApplicationRequest));
-        LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.evaluate(loanApplicationRequest);
+        LoanEvaluationResult loanEvaluationResult =
+                loanEvaluatorProvider.evaluate(loanApplicationRequest, loanApplicationRoot.getLoanRequestNumber());
 
-        loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
+//        loanApplicationRoot.changeLoanEvaluationStatus(loanEvaluationResult);
         loanApplicationRepository.save(loanApplicationRoot);
 
-        return loanApplicationRoot.prepareRegistrationResultView();
+        return loanApplicationRoot.prepareRegistrationResultView(loanEvaluationResult);
     }
 
     public LoanApplicationView getByNumber(String loanNumber){
+
+        LoanEvaluationResult loanEvaluationResult = loanEvaluatorProvider.getLoanApplicationEvaluationResult(loanNumber);
+
+
+
         return loanApplicationRepository.findByLoanRequestNumber(loanNumber)
                 .orElseThrow(EntityNotFoundException::new)
-                .prepareLoanApplicationView();
+                .prepareLoanApplicationView(loanEvaluationResult);
     }
 }

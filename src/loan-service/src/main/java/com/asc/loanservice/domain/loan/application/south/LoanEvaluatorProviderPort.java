@@ -5,5 +5,6 @@ import com.asc.loanservice.domain.loan.application.contract.LoanApplicationReque
 
 public interface LoanEvaluatorProviderPort {
 
-    LoanEvaluationResult evaluate(LoanApplicationRequest loanApplicationRequest);
+    LoanEvaluationResult evaluate(LoanApplicationRequest loanApplicationRequest, String loanApplicationNumber);
+    LoanEvaluationResult getLoanApplicationEvaluationResult(String loanApplicationNumber);
 }

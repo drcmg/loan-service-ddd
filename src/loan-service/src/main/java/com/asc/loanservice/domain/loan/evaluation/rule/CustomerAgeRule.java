@@ -1,14 +1,15 @@
-package com.asc.loanservice.domain.loan.rule;
+package com.asc.loanservice.domain.loan.evaluation.rule;
 
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Period;
 
 import static com.asc.loanservice.constant.Constants.*;
 
-
-public class CustomerAgeRule implements Rule {
+@Component
+class CustomerAgeRule implements Rule {
 
     @Override
     public Boolean isValid(LoanApplicationRequest loanApplicationRequest) {

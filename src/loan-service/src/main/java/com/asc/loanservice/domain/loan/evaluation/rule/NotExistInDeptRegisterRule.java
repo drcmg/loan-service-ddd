@@ -1,13 +1,15 @@
-package com.asc.loanservice.domain.loan.rule;
+package com.asc.loanservice.domain.loan.evaluation.rule;
 
-import com.asc.loanservice.domain.loan.rule.port.DebtPort;
-import com.asc.loanservice.domain.loan.rule.port.DebtCustomerResult;
+import com.asc.loanservice.domain.loan.evaluation.south.DebtPort;
+import com.asc.loanservice.domain.loan.evaluation.south.DebtCustomerResult;
 import com.asc.loanservice.domain.loan.application.contract.LoanApplicationRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
 
 @AllArgsConstructor
-public class NotExistInDeptRegisterRule implements Rule {
+@Component
+class NotExistInDeptRegisterRule implements Rule {
 
     private final DebtPort debtPort;
 

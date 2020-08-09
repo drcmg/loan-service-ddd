@@ -1,4 +1,4 @@
-package com.asc.loanservice.domain.loan.rule.port;
+package com.asc.loanservice.domain.loan.evaluation.south;
 
 
 public enum DebtCustomerResult {
