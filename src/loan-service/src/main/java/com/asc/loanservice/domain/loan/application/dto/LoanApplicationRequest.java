@@ -1,6 +1,7 @@
 package com.asc.loanservice.domain.loan.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.*;
@@ -12,6 +13,7 @@ import static com.asc.loanservice.constant.ValidationOrder.*;
 
 
 @Getter
+@Builder
 public class LoanApplicationRequest {
 
     @NotNull(groups = Order2.class)
